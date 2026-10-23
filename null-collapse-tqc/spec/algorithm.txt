@@ -1,0 +1,5 @@
+See source archive algorithm specification as supplied with the null-collapse TQC submission.
+
+Multi-pair null collapse with amplitude concentration.
+Local Z gates do not increase null probability.
+Clifford-only Ising braiding cannot implement general Grover amplification without non-Clifford resources.
