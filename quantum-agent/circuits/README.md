@@ -10,5 +10,5 @@ No host language, no Python.
 | `grover_n2_marked1.qasm` | Grover n=2, marked \|01\> |
 | `grover_n2_marked3.qasm` | Grover n=2, marked \|11\> |
 
-Null-collapse: `null-collapse-tqc/circuits/`
+Null-collapse circuits: `null-collapse-tqc/circuits/`
 φ⁴ Trotter: `cpsc-qft/qasm/phi4_trotter.qasm`

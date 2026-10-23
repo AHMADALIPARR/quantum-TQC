@@ -14,7 +14,6 @@ h q[0];
 h q[1];
 
 // ---- Oracle for marked |01> ----
-// Map |01> → |11>, apply CZ, unmap
 x q[0];
 h q[1];
 cx q[0], q[1];
