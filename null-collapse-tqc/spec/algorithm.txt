@@ -1,5 +1,15 @@
-See source archive algorithm specification as supplied with the null-collapse TQC submission.
+Multi-Pair Null Collapse with Amplitude Concentration
+======================================================
 
-Multi-pair null collapse with amplitude concentration.
-Local Z gates do not increase null probability.
-Clifford-only Ising braiding cannot implement general Grover amplification without non-Clifford resources.
+1. Encode candidate weights w_k via Ry(2 arcsin(w_k)) on qubit k.
+2. Optional concentration rounds:
+   a. Local concentration: apply sigma_1^2 = Z on each qubit.
+   b. Pairwise reflection: braid sigma_even between adjacent pairs.
+3. Measure all qubits in computational basis; Zero outcome = null.
+
+Known limits (as supplied):
+- Local Z alone does not increase null probability.
+- Clifford-only Ising braiding cannot implement general Grover
+  amplification without non-Clifford resources.
+
+Source preserved; no build or verification asserted in packaging.
