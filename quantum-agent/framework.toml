@@ -1,0 +1,35 @@
+# Quantum Agent Framework — from-scratch declarative stack
+# License: GNU AGPL v3.0
+# No host language runtime is required to read this framework;
+# TOML is the source of truth for schema, policy, and examples.
+
+[framework]
+name = "quantum-agent"
+version = "0.1.0"
+license = "AGPL-3.0-or-later"
+description = "Verified quantum agent: typed IR, compile, verify, execute, receipt"
+milestones_complete = [1, 2, 3]
+milestones_planned = [4, 5]
+
+[framework.principles]
+agent_emits_ir_only = true
+host_enforces_schema = true
+compilation_deterministic = true
+content_addressed_artifacts = true
+verification_before_backend = true
+no_hidden_approximation = true
+
+[framework.modules]
+ir = "ir/schema.toml"
+runtime = "runtime/state_machine.toml"
+algorithms = "algorithms/catalog.toml"
+topological = "topological/fibonacci.toml"
+verification = "verification/checks.toml"
+receipts = "receipts/schema.toml"
+
+[framework.languages]
+# This framework is declared in TOML. Execution hosts may be implemented
+# in any language that consumes these schemas. This repository does not
+# ship a Python host.
+declaration = "toml"
+hosts = []  # none shipped in-tree

@@ -1,0 +1,20 @@
+# Signed execution receipts
+
+[receipts]
+algorithm = "hmac-sha256"
+fields = [
+  "program_hash",
+  "artifact_hash",
+  "result_summary",
+  "timestamp",
+  "signature",
+]
+
+[receipts.integrity]
+program_hash = "sha256 of canonical IR"
+artifact_hash = "sha256 of compiled circuit payload"
+tamper_detection = true
+
+[receipts.policy]
+emit_on_success = true
+emit_on_failure = false

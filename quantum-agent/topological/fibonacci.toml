@@ -1,0 +1,48 @@
+# Fibonacci anyon model (declarative)
+
+[topological]
+model = "fibonacci"
+milestone = 3
+hardware_claim = false
+
+[topological.anyons]
+labels = ["1", "tau"]
+
+[topological.fusion]
+rules = [
+  { a = "1", b = "1", outcomes = ["1"] },
+  { a = "1", b = "tau", outcomes = ["tau"] },
+  { a = "tau", b = "1", outcomes = ["tau"] },
+  { a = "tau", b = "tau", outcomes = ["1", "tau"] },
+]
+
+[topological.quantum_dimension]
+"1" = 1.0
+tau = 1.618033988749895
+
+[topological.F_matrix_tau]
+rows = [
+  [0.618033988749895, 0.786151377757423],
+  [0.786151377757423, -0.618033988749895],
+]
+
+[topological.R_matrix_tau]
+diag = [
+  [-0.809016994374947, -0.587785252292473],
+  [-0.309016994374947,  0.951056516295154],
+]
+
+[topological.limits]
+n_anyons_max = 4
+n_gt_4 = "not supported"
+physical_hardware = false
+solovay_kitaev = false
+
+[topological.logical_gates]
+X = { braid_word = [0, 1, 0], approximate = false }
+H = { braid_word = [0, 1, 0, 1], approximate = true, report_error = true }
+
+[topological.consistency]
+check_F_unitary = true
+check_R_unitary = true
+check_hexagon = true

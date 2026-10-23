@@ -1,0 +1,25 @@
+# Independent verification (mandatory before backend)
+
+[verification]
+mandatory = true
+engine = "checks"
+
+[[verification.checks]]
+id = "supported_gates"
+description = "All compiled gates in native set"
+
+[[verification.checks]]
+id = "qubit_range"
+description = "All qubit indices in 0..n_qubits-1"
+
+[[verification.checks]]
+id = "op_count_consistency"
+description = "Compiled op count matches IR (warning if mismatch)"
+
+[[verification.checks]]
+id = "resource_limits"
+description = "Qubit and gate counts within IR resource constraints"
+
+[[verification.checks]]
+id = "measure_has_classical"
+description = "MEASURE ops have classical targets"

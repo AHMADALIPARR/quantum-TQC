@@ -1,0 +1,28 @@
+# Typed Quantum Intermediate Representation (IR)
+
+[ir]
+version = "0.1.0"
+format = "toml-or-json-equivalent"
+
+[ir.supported_gates]
+H = 1
+X = 1
+Z = 1
+CNOT = 2
+MEASURE = 1
+
+[ir.resources]
+max_qubits = 8
+max_depth = 10000
+max_gates = 50000
+numerical_tolerance = 1.0e-10
+
+[ir.backend_requirements]
+min_qubits = 1
+supports_statevector = true
+supports_measurement = true
+native_gates = ["H", "X", "Z", "CNOT", "MEASURE"]
+
+[ir.integrity]
+program_hash = "sha256 of canonical serialization"
+reject_unknown_ir_version = true

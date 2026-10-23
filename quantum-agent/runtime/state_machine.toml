@@ -1,0 +1,30 @@
+# Execution host state machine
+
+[runtime]
+name = "execution-host"
+description = "Parse → typecheck → compile → verify → run → receipt"
+
+[runtime.states]
+CREATED = "context allocated"
+PARSED = "IR parsed"
+TYPECHECKED = "schema and resources valid"
+COMPILED = "content-addressed circuit produced"
+VERIFIED = "independent checks passed"
+RUNNING = "backend executing"
+SUCCEEDED = "terminal success"
+FAILED = "terminal failure"
+
+[runtime.transitions]
+CREATED = ["PARSED", "FAILED"]
+PARSED = ["TYPECHECKED", "FAILED"]
+TYPECHECKED = ["COMPILED", "FAILED"]
+COMPILED = ["VERIFIED", "FAILED"]
+VERIFIED = ["RUNNING", "FAILED"]
+RUNNING = ["SUCCEEDED", "FAILED"]
+SUCCEEDED = []
+FAILED = []
+
+[runtime.policy]
+verification_mandatory_before_backend = true
+agent_may_only_emit_ir = true
+host_owns_compile_and_verify = true
