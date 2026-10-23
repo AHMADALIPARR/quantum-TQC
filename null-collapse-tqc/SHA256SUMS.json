@@ -1,0 +1,7 @@
+{
+  "README.md": "a02e2c50dbe3d6e01aaffd2ee762a651a3c9df693e36377dee2b94ee71bdf066",
+  "formal/TopologicalInvariance.lean": "c1fe200d7b03ed7d21752fa3f77d3790aecfc5850437b7461e96e1648bb61fe2",
+  "spec/algorithm.txt": "placeholder",
+  "src/NullCollapseMulti.qs": "placeholder",
+  "tests/NullCollapseTests.qs": "placeholder"
+}
