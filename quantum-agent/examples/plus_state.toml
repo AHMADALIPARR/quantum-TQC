@@ -1,0 +1,40 @@
+# Milestone-1 example: prepare |+> and measure
+
+ir_version = "0.1.0"
+
+[[qregs]]
+name = "q"
+size = 1
+
+[[cregs]]
+name = "c"
+size = 1
+
+[[operations]]
+gate = "H"
+qubits = [{ register = "q", index = 0 }]
+source_id = "h0"
+
+[[operations]]
+gate = "MEASURE"
+qubits = [{ register = "q", index = 0 }]
+classical = { register = "c", index = 0 }
+source_id = "m0"
+
+[metadata]
+name = "plus_state_prepare_and_measure"
+objective = "Prepare |+> and measure in computational basis"
+description = "Minimal Milestone-1 example: H then MEASURE"
+assumptions = ["Ideal state-vector simulation", "No noise"]
+
+[resources]
+max_qubits = 4
+max_depth = 100
+max_gates = 100
+numerical_tolerance = 1.0e-10
+
+[backend_requirements]
+min_qubits = 1
+supports_statevector = true
+supports_measurement = true
+native_gates = ["H", "X", "CNOT", "MEASURE"]

@@ -1,0 +1,26 @@
+# Small Grover n=2, marked = 1 (bitstring 01)
+
+ir_version = "0.1.0"
+
+[algorithm]
+name = "grover"
+n = 2
+marked = 1
+
+[[qregs]]
+name = "q"
+size = 2
+
+[[cregs]]
+name = "c"
+size = 2
+
+[metadata]
+name = "grover_n2_marked1"
+objective = "Find marked=1 in n=2"
+assumptions = ["Ideal noiseless simulator", "One marked item"]
+
+[resources]
+max_qubits = 4
+max_depth = 10000
+max_gates = 50000

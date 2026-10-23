@@ -1,0 +1,27 @@
+# Capability matrix (honest status)
+
+[milestone_1]
+typed_ir = { implemented = true, tested = true, formal = false, hardware = false }
+verification_engine = { implemented = true, tested = true, formal = false, hardware = false }
+statevector_backend_spec = { implemented = true, tested = false, formal = false, hardware = false }
+signed_receipts = { implemented = true, tested = true, formal = false, hardware = false }
+
+[milestone_2]
+oracle_interface = { implemented = true, tested = true, formal = false, hardware = false }
+linear_boolean_oracle = { implemented = true, tested = true, formal = false, hardware = false }
+grover_n_le_4 = { implemented = true, tested = true, formal = false, hardware = false }
+
+[milestone_3]
+fibonacci_fusion = { implemented = true, tested = true, formal = false, hardware = false }
+F_R_symbols = { implemented = true, tested = true, formal = false, hardware = false }
+braid_n_le_4 = { implemented = true, tested = true, formal = false, hardware = false }
+logical_X_braid = { implemented = true, tested = true, formal = false, hardware = false }
+logical_H_approx = { implemented = true, tested = true, formal = false, hardware = false }
+physical_topological_hardware = { implemented = false, tested = false, formal = false, hardware = false }
+
+[honest_statements]
+statements = [
+  "All topological results are from the idealized Fibonacci anyon model.",
+  "No claim of physical topological quantum hardware.",
+  "Logical H is approximate; error must be reported, never hidden.",
+]

@@ -8,12 +8,13 @@ See LICENSE for the full text.
 
 # Quantum TQC
 
-### Topological Quantum Computing · CPSC/QFT · Null-Collapse
+### Topological Quantum Computing · CPSC/QFT · Null-Collapse · Quantum Agent
 
 [![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 [![Q#](https://img.shields.io/badge/Q%23-null%20collapse-purple)](null-collapse-tqc/)
 [![Lean](https://img.shields.io/badge/Lean-formal-green)](cpsc-qft/lean/)
 [![Rust](https://img.shields.io/badge/Rust-CPSC%2FQFT-orange)](cpsc-qft/rust/)
+[![TOML](https://img.shields.io/badge/TOML-quantum%20agent-blue)](quantum-agent/)
 
 **Source-preserved frameworks under AGPL-3.0.**
 
@@ -25,12 +26,11 @@ See LICENSE for the full text.
 
 | Tree | Role |
 |------|------|
-| **[`cpsc-qft/`](cpsc-qft/)** | CPSC / QFT: Rust (Roswell metric, Dodleston anomaly, φ⁴ encoding, leakage bounds), Lean Mathlib instantiation, OpenQASM φ⁴ Trotter, OWL Planck thermo |
-| **[`null-collapse-tqc/`](null-collapse-tqc/)** | Null-collapse topological QC: Q# multi-pair null collapse, Q# tests, Lean topological invariance sketch, algorithm spec |
+| **[`cpsc-qft/`](cpsc-qft/)** | CPSC / QFT: Rust, Lean, OpenQASM, OWL |
+| **[`null-collapse-tqc/`](null-collapse-tqc/)** | Null-collapse TQC: Q#, Lean formal, algorithm spec |
+| **[`quantum-agent/`](quantum-agent/)** | From-scratch **TOML** quantum agent framework (IR, runtime, algorithms, Fibonacci, verification, receipts) |
 
-Languages: **Rust, Q#, Lean, OpenQASM, OWL**. No Python.
-
-All source blocks are retained as supplied (including placeholders and incomplete definitions). Packaging does not assert build, proof, or experimental validation.
+Languages: **Rust, Q#, Lean, OpenQASM, OWL, TOML**. No Python.
 
 ---
 
@@ -38,48 +38,48 @@ All source blocks are retained as supplied (including placeholders and incomplet
 
 ```
 quantum-TQC/
-├── LICENSE                          # GNU AGPL v3.0
+├── LICENSE
 ├── README.md
-├── cpsc-qft/
-│   ├── lean/MathlibInstantiation.lean
-│   ├── owl/planck_thermo.owl
-│   ├── qasm/phi4_trotter.qasm
-│   ├── rust/
-│   ├── PACKAGING_NOTE.txt
-│   └── SHA256SUMS
-└── null-collapse-tqc/
-    ├── formal/TopologicalInvariance.lean
-    ├── spec/algorithm.txt
-    ├── src/NullCollapseMulti.qs
-    ├── tests/NullCollapseTests.qs
-    ├── README.md
-    └── SHA256SUMS.json
+├── cpsc-qft/           # Rust · Lean · QASM · OWL
+├── null-collapse-tqc/  # Q# · Lean
+└── quantum-agent/      # TOML declarative agent
+    ├── framework.toml
+    ├── ir/
+    ├── runtime/
+    ├── algorithms/
+    ├── topological/
+    ├── verification/
+    ├── receipts/
+    ├── examples/
+    └── docs/
 ```
+
+---
+
+## Quantum Agent (TOML)
+
+Declarative agent: agent emits IR → host parse/typecheck/compile/verify/execute/receipt.
+
+- [framework.toml](quantum-agent/framework.toml) — principles and module index
+- [ir/schema.toml](quantum-agent/ir/schema.toml) — typed gates and resources
+- [runtime/state_machine.toml](quantum-agent/runtime/state_machine.toml)
+- [topological/fibonacci.toml](quantum-agent/topological/fibonacci.toml)
+- [examples/](quantum-agent/examples/) — plus_state, bell_pair, grover_n2
+
+No language host is shipped; TOML is the specification.
 
 ---
 
 ## Quick links
 
 ### CPSC / QFT
-- [Rust sources](cpsc-qft/rust/)
-- [Lean Mathlib instantiation](cpsc-qft/lean/MathlibInstantiation.lean)
-- [φ⁴ Trotter QASM](cpsc-qft/qasm/phi4_trotter.qasm)
-- [Planck thermo OWL](cpsc-qft/owl/planck_thermo.owl)
+- [Rust](cpsc-qft/rust/) · [Lean](cpsc-qft/lean/MathlibInstantiation.lean) · [QASM](cpsc-qft/qasm/phi4_trotter.qasm) · [OWL](cpsc-qft/owl/planck_thermo.owl)
 
 ### Null-collapse TQC
-- [NullCollapseMulti.qs](null-collapse-tqc/src/NullCollapseMulti.qs)
-- [NullCollapseTests.qs](null-collapse-tqc/tests/NullCollapseTests.qs)
-- [TopologicalInvariance.lean](null-collapse-tqc/formal/TopologicalInvariance.lean)
-- [Algorithm spec](null-collapse-tqc/spec/algorithm.txt)
+- [NullCollapseMulti.qs](null-collapse-tqc/src/NullCollapseMulti.qs) · [Tests](null-collapse-tqc/tests/) · [Lean formal](null-collapse-tqc/formal/TopologicalInvariance.lean)
 
----
-
-## How the pieces connect
-
-1. **Null-collapse TQC** — Q# topological null-collapse primitive and Lean invariance sketch.
-2. **CPSC/QFT** — continuum / field encodings (φ⁴, leakage, Roswell/Dodleston) plus OWL/QASM.
-
-Shared AGPL-3.0 license. No automated integration harness is claimed in this packaging.
+### Quantum Agent
+- [README](quantum-agent/README.md) · [Architecture](quantum-agent/docs/architecture.toml) · [Capability matrix](quantum-agent/docs/capability_matrix.toml)
 
 ---
 
@@ -91,6 +91,6 @@ Shared AGPL-3.0 license. No automated integration harness is claimed in this pac
 
 <div align="center">
 
-**Quantum TQC** · AGPL-3.0 · Rust · Q# · Lean · QASM · OWL
+**Quantum TQC** · AGPL-3.0 · Rust · Q# · Lean · QASM · OWL · TOML
 
 </div>

@@ -1,0 +1,24 @@
+# Architecture — trust boundaries and flow
+
+[architecture]
+milestone = 1
+title = "Typed IR path"
+
+[architecture.trust_boundary]
+agent_role = "emit IR only"
+host_role = "schema, typing, resource limits, compile, verify, execute"
+
+[architecture.artifact]
+program_hash = "SHA-256 of canonical IR serialization"
+circuit_hash = "SHA-256 of compiled ops payload"
+source_map = "IR op → compiled op linkage"
+
+[architecture.pipeline]
+order = [
+  "parse",
+  "typecheck",
+  "compile",
+  "verify",
+  "execute",
+  "receipt",
+]
