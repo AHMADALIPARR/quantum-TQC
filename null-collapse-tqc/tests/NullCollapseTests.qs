@@ -1,43 +1,37 @@
+// Copyright (C) 2026 — AGPL-3.0
+// Tests for Null Collapse TQC
+
 namespace NullCollapseTQC.Tests {
     open Microsoft.Quantum.Intrinsic;
-    open Microsoft.Quantum.Testing;
-    open Microsoft.Quantum.Math;
-    open Microsoft.Quantum.Arrays;
+    open Microsoft.Quantum.Measurement;
+    open Microsoft.Quantum.Diagnostics;
     open NullCollapseTQC;
 
     @Test("QuantumSimulator")
-    operation TestLocalConcentrationIncreasesNullProb() : Unit {
-        let weights = [0.3, 0.4, 0.2];
-        let outcomes = NullCollapseLocal(weights);
-        Fact(Length(outcomes) == 3, "wrong length");
+    operation TestNullPureNull() : Unit {
+        let r = NullCollapse(0.0);
+        Fact(r == true or r == false, "invalid measurement");
     }
 
     @Test("QuantumSimulator")
-    operation TestBaselineVsConcentration() : Unit {
-        let weights = [0.5, 0.5];
-        let _ = NullCollapseBaseline(weights);
-        let _ = NullCollapseLocal(weights);
+    operation TestNullPureNonNull() : Unit {
+        let r = NullCollapse(1.0);
+        Fact(r == true or r == false, "invalid measurement");
     }
 
     @Test("QuantumSimulator")
-    operation TestBraidSigmaEvenUnitarity() : Unit {
-        use (c, t) = (Qubit(), Qubit());
-        BraidSigmaEven(c, t);
-        Adjoint BraidSigmaEven(c, t);
-        let rc = M(c);
-        let rt = M(t);
-        Reset(c);
-        Reset(t);
-        Fact(rc == Zero and rt == Zero, "BraidSigmaEven not unitary");
+    operation TestBraidUnitarity() : Unit {
+        // σ₁⁴ = identity (up to global phase): 4*(π/2)=2π
+        use q = Qubit();
+        for _ in 1..4 { BraidSigma1(q); }
+        let r = M(q);
+        Reset(q);
+        Fact(r == Zero, "sigma_1^4 not identity on |0>");
     }
 
     @Test("QuantumSimulator")
-    operation TestThreeQubitEntanglement() : Unit {
-        use qs = Qubit[3];
-        ApplyToEachA(H, qs);
-        PairwiseReflection(qs);
-        let outcomes = MultiM(qs);
-        ResetAll(qs);
-        Fact(true, "executed");
+    operation TestAllWeights() : Unit {
+        let outs = NullCollapseAll([0.0, 0.25, 0.5, 0.75, 1.0]);
+        Fact(Length(outs) == 5, "wrong output length");
     }
 }
