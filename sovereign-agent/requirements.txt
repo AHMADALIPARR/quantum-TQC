@@ -1,6 +1,0 @@
-numpy>=1.26
-scipy>=1.11
-sympy>=1.12
-qutip>=5.0
-cryptography>=41.0
-pytest>=8.0
