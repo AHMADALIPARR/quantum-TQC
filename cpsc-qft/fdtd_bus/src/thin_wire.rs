@@ -51,7 +51,7 @@ impl ThinWire {
         for k in 0..=n_segments {
             let t = k as f64 / n_segments as f64;
             let pos = trace.start + (trace.end - trace.start) * t;
-            nodes.push(WireNode { position: pos, fdtd_indices: (0,0,0) }); // Filled later
+            nodes.push(WireNode { position: pos.coords, fdtd_indices: (0,0,0) }); // Filled later
         }
 
         // Microstrip impedance approximation
@@ -89,7 +89,11 @@ impl ThinWire {
     /// Coupled update: FDTD E-field -> wire voltage, wire current -> FDTD H-field
     pub fn update_coupled(&mut self, grid: &mut YeeGrid) {
         let dt = grid.dt;
-        let dz = self.nodes[1].position.z - self.nodes[0].position.z; // Assuming z-aligned for simplicity
+        // Segment spacing along the wire. (Was: z-difference only,
+        // which is 0 for the canonical y-directed traces and made
+        // every MNA coefficient divide by zero; the node distance is
+        // the same quantity for z-aligned wires.)
+        let dz = (self.nodes[1].position - self.nodes[0].position).norm();
 
         // 1. Compute incident E-field along wire from FDTD
         let mut e_inc = DVector::zeros(self.v.len());
@@ -113,7 +117,10 @@ impl ThinWire {
         // 3. Back-couple: wire current -> equivalent H-field source in FDTD
         // J_eq = I * delta(r - r_wire) -> H-field update
         for seg_idx in 0..self.i.len() {
-            let i_avg = 0.5 * (self.i[seg_idx] + self.i[seg_idx+1]);
+            // (Was: i[seg_idx + 1] unguarded -- out of bounds on the
+            // last segment, since i holds one entry per segment.)
+            let i_next = self.i[(seg_idx + 1).min(self.i.len() - 1)];
+            let i_avg = 0.5 * (self.i[seg_idx] + i_next);
             let node = &self.nodes[seg_idx];
             let (i,j,k) = node.fdtd_indices;
             // Add to H-field curl (Biot-Savart approximation)

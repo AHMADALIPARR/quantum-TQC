@@ -7,6 +7,7 @@ use crate::thin_wire::ThinWire;
 use crate::capacity::{FrequencyResponse, AdjointFDTD};
 use crate::dodleston::DodlestonDetector; // From previous artifact
 use ndarray::Array1;
+use std::f64::consts::PI;
 
 pub struct DodlestonEMModel {
     pub geometry: BbcMicroGeometry,
@@ -24,7 +25,7 @@ impl DodlestonEMModel {
         let nx = ((max.x - min.x) / dx).ceil() as usize;
         let ny = ((max.y - min.y) / dx).ceil() as usize;
         let nz = ((max.z - min.z) / dx).ceil() as usize;
-        let grid = YeeGrid::new(nx, ny, nz, dx, dx, dx, 10); // 10-cell PML
+        let mut grid = YeeGrid::new(nx, ny, nz, dx, dx, dx, 10); // 10-cell PML
 
         // Map materials
         Self::assign_materials(&mut grid, &geometry);
@@ -66,16 +67,19 @@ impl DodlestonEMModel {
                 tf_sf_box: (nalgebra::Point3::new(10,10,10), nalgebra::Point3::new(self.grid.nx-10, self.grid.ny-10, self.grid.nz-10)),
             };
 
+            let amplitude = source.amplitude;
+            let sources: Vec<Box<dyn crate::fdtd::Source>> = vec![Box::new(source)];
+
             // Run FDTD for 10 cycles at this frequency
             let n_steps = (10.0 / f / self.grid.dt).ceil() as usize;
             let mut v_pin = Vec::new();
             let mut e_inc = Vec::new();
 
             for step in 0..n_steps {
-                self.grid.step(&[Box::new(source)], &mut self.wires);
+                self.grid.step(&sources, &mut self.wires);
                 if step > n_steps / 2 { // Steady state
                     v_pin.push(self.wires[0].pin_voltage()); // A0 pin
-                    e_inc.push(source.amplitude * (2.0 * PI * f * step as f64 * self.grid.dt).sin());
+                    e_inc.push(amplitude * (2.0 * PI * f * step as f64 * self.grid.dt).sin());
                 }
             }
             all_v.extend(v_pin);

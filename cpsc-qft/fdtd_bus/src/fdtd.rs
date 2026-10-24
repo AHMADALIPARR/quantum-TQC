@@ -1,8 +1,9 @@
 // File: fdtd_bus/src/fdtd.rs
 // 3D FDTD solver with PML and thin-wire subgridding.
 
-use nalgebra::{Vector3, Matrix3};
+use nalgebra::{Vector3, Matrix3, Point3};
 use ndarray::{Array3, Array4, Zip};
+use crate::thin_wire::ThinWire;
 use num_complex::Complex64;
 use rayon::prelude::*;
 use std::f64::consts::PI;
@@ -71,9 +72,7 @@ impl YeeGrid {
     pub fn update_h(&mut self) {
         // Standard Yee curl equations with material coefficients
         // Parallelized over z-slices
-        self.hx.axis_chunks_mut(1).enumerate().par_bridge().for_each(|(j, mut hx_slice)| {
-            // ... curl E update for Hx
-        });
+        // ... curl E update for Hx
         // Similar for Hy, Hz
     }
 
