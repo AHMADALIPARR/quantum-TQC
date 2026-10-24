@@ -33,10 +33,12 @@ See LICENSE for the full text.
 | `rust/dodleston_anomaly.rs` | yes |
 | `rust/leakage_bound.rs` | yes |
 | `rust/phi4_oscillator_alternative.rs` | yes |
-| `rust/roswell_metric.rs` | yes |
+| `rust/roswell_metric.rs` | yes (full Kretschmann) |
 | `lean/MathlibInstantiation.lean` | yes |
+| `lean/roswell_anomaly.lean` | yes |
 | `qasm/phi4_trotter.qasm` | yes |
 | `owl/planck_thermo.owl` | yes |
+| `fdtd_bus/` (6502 bus coupling Γ) | yes |
 | `PACKAGING_NOTE.txt`, `SHA256SUMS` | yes |
 
 ### 2. `null-collapse-tqc-framework` → [`null-collapse-tqc/`](null-collapse-tqc/)
@@ -176,7 +178,7 @@ OpenQASM 3.0 φ⁴ interaction step (Λ=8 → 3 qubits). See source for Trotter 
 quantum-TQC/
 ├── LICENSE
 ├── README.md
-├── cpsc-qft/                 # zip 1: Rust · Lean · QASM · OWL
+├── cpsc-qft/                 # zip 1: Rust · Lean · QASM · OWL · FDTD bus
 ├── null-collapse-tqc/        # zip 2: Q# · Lean · circuits/
 └── quantum-agent/            # zip 3 → TOML schema + circuits/
     ├── framework.toml

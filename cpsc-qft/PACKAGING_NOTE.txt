@@ -1,1 +1,7 @@
-Packaging only. Source blocks transcribed from the supplied chat message without intentional corrections. Repeated prose sections are not reproduced in this source-file archive. The Roswell source ends at the unfinished /// comment exactly as supplied. No build, proof, or scientific validation performed.
+Packaging only. Source blocks transcribed from the supplied chat message without intentional corrections.
+
+2026-10-23 follow-up:
+- rust/roswell_metric.rs replaced with the full Kretschmann implementation (previous copy ended at an unfinished comment, as supplied then).
+- lean/roswell_anomaly.lean added as supplied.
+- fdtd_bus/ added as supplied (geometry, fdtd, thin_wire, capacity, dodleston_integration, main, Cargo.toml).
+- fdtd_bus/src/lib.rs and fdtd_bus/src/dodleston.rs are the module root the supplied crate:: paths require; dodleston.rs is the earlier DodlestonDetector source. No build, proof, or scientific validation performed.
