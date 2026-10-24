@@ -211,6 +211,21 @@ quantum-TQC/
 
 ---
 
+
+## pirtm_rs
+
+Langlands safety gates and the Raw Temporal Attractor types they call.
+
+```
+pirtm_rs/
+├── build.rs          # sovereign_core + build-health cfgs the shield requires
+├── src/gates.rs      # gate_langlands, lexical, grounding, consistency, local-first, ZK
+└── src/rta.rs        # State, RawTemporalAttractor, LatticeNode
+```
+
+`cargo test` in `pirtm_rs/` — 3 gate tests, all passing.
+The supplied `distance` paste ended at `.sqrt()`; only the closing braces were added.
+
 ## License
 
 **GNU Affero General Public License v3.0** — see [LICENSE](LICENSE).
