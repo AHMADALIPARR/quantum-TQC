@@ -14,6 +14,8 @@ quantum-agent/
 ├── algorithms/catalog.toml
 ├── topological/fibonacci.toml
 ├── verification/checks.toml
+├── verification/circuit_checks.toml
+├── circuits/                 # executable OpenQASM
 ├── receipts/schema.toml
 ├── examples/                # IR programs as TOML
 │   ├── plus_state.toml

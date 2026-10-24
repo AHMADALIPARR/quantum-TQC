@@ -39,10 +39,21 @@ physical_hardware = false
 solovay_kitaev = false
 
 [topological.logical_gates]
-X = { braid_word = [0, 1, 0], approximate = false }
+X = { braid_word = [0, 1, 0], approximate = true, report_error = true }  # skeleton said exact; F,R give fidelity 0.745 to Pauli X
 H = { braid_word = [0, 1, 0, 1], approximate = true, report_error = true }
 
 [topological.consistency]
 check_F_unitary = true
 check_R_unitary = true
 check_hexagon = true
+
+# Compiled OpenQASM (global-phase-free u3 of the unitary these matrices define):
+#   circuits/topological/f_matrix_tau.qasm
+#   circuits/topological/r_matrix_tau.qasm
+#   circuits/topological/sigma1.qasm
+#   circuits/topological/sigma2.qasm
+#   circuits/topological/logical_x_braid_010.qasm
+#   circuits/topological/logical_h_braid_0101.qasm
+# Checked against Pauli X / H / Z in verification/circuit_checks.toml.
+# Under this F and R, braid [0, 1, 0] is not Pauli X
+# (average gate fidelity to X = 0.745356, to H = 0.990579).

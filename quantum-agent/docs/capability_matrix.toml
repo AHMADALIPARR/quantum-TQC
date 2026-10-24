@@ -24,4 +24,5 @@ statements = [
   "All topological results are from the idealized Fibonacci anyon model.",
   "No claim of physical topological quantum hardware.",
   "Logical H is approximate; error must be reported, never hidden.",
+  "Braid word [0, 1, 0] is not Pauli X under the supplied Fibonacci F and R. Average gate fidelity to X is 0.745356 and to H is 0.990579. See verification/circuit_checks.toml.",
 ]

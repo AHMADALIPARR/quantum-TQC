@@ -1,0 +1,326 @@
+# Generated circuit checks. Numbers come from statevector simulation of these files' gate sequences.
+
+[grover]
+bit_order = "q[0] is the leftmost ket bit (MSB of the marked integer)"
+iterations = "floor(pi/4 * sqrt(2^n))"
+oracle = "X on zero-bits, multi-controlled Z, uncompute"
+diffusion = "H X (multi-controlled Z) X H"
+
+[[grover.instances]]
+n = 1
+marked = 0
+ket = "|0>"
+iterations = 1
+success_probability = 0.5000000000000006
+path = "circuits/grover_n1_marked0.qasm"
+
+[[grover.instances]]
+n = 1
+marked = 1
+ket = "|1>"
+iterations = 1
+success_probability = 0.5000000000000006
+path = "circuits/grover_n1_marked1.qasm"
+
+[[grover.instances]]
+n = 2
+marked = 0
+ket = "|00>"
+iterations = 1
+success_probability = 1
+path = "circuits/grover_n2_marked0.qasm"
+
+[[grover.instances]]
+n = 2
+marked = 1
+ket = "|01>"
+iterations = 1
+success_probability = 1
+path = "circuits/grover_n2_marked1.qasm"
+
+[[grover.instances]]
+n = 2
+marked = 2
+ket = "|10>"
+iterations = 1
+success_probability = 1
+path = "circuits/grover_n2_marked2.qasm"
+
+[[grover.instances]]
+n = 2
+marked = 3
+ket = "|11>"
+iterations = 1
+success_probability = 1
+path = "circuits/grover_n2_marked3.qasm"
+
+[[grover.instances]]
+n = 3
+marked = 0
+ket = "|000>"
+iterations = 2
+success_probability = 0.9453125000000001
+path = "circuits/grover_n3_marked0.qasm"
+
+[[grover.instances]]
+n = 3
+marked = 1
+ket = "|001>"
+iterations = 2
+success_probability = 0.9453125000000001
+path = "circuits/grover_n3_marked1.qasm"
+
+[[grover.instances]]
+n = 3
+marked = 2
+ket = "|010>"
+iterations = 2
+success_probability = 0.9453125000000001
+path = "circuits/grover_n3_marked2.qasm"
+
+[[grover.instances]]
+n = 3
+marked = 3
+ket = "|011>"
+iterations = 2
+success_probability = 0.9453125000000001
+path = "circuits/grover_n3_marked3.qasm"
+
+[[grover.instances]]
+n = 3
+marked = 4
+ket = "|100>"
+iterations = 2
+success_probability = 0.9453125000000001
+path = "circuits/grover_n3_marked4.qasm"
+
+[[grover.instances]]
+n = 3
+marked = 5
+ket = "|101>"
+iterations = 2
+success_probability = 0.9453125000000001
+path = "circuits/grover_n3_marked5.qasm"
+
+[[grover.instances]]
+n = 3
+marked = 6
+ket = "|110>"
+iterations = 2
+success_probability = 0.9453125000000001
+path = "circuits/grover_n3_marked6.qasm"
+
+[[grover.instances]]
+n = 3
+marked = 7
+ket = "|111>"
+iterations = 2
+success_probability = 0.9453125000000001
+path = "circuits/grover_n3_marked7.qasm"
+
+[[grover.instances]]
+n = 4
+marked = 0
+ket = "|0000>"
+iterations = 3
+success_probability = 0.9613189697265625
+path = "circuits/grover_n4_marked0.qasm"
+ancilla = 1
+
+[[grover.instances]]
+n = 4
+marked = 1
+ket = "|0001>"
+iterations = 3
+success_probability = 0.9613189697265625
+path = "circuits/grover_n4_marked1.qasm"
+ancilla = 1
+
+[[grover.instances]]
+n = 4
+marked = 2
+ket = "|0010>"
+iterations = 3
+success_probability = 0.9613189697265625
+path = "circuits/grover_n4_marked2.qasm"
+ancilla = 1
+
+[[grover.instances]]
+n = 4
+marked = 3
+ket = "|0011>"
+iterations = 3
+success_probability = 0.9613189697265625
+path = "circuits/grover_n4_marked3.qasm"
+ancilla = 1
+
+[[grover.instances]]
+n = 4
+marked = 4
+ket = "|0100>"
+iterations = 3
+success_probability = 0.9613189697265625
+path = "circuits/grover_n4_marked4.qasm"
+ancilla = 1
+
+[[grover.instances]]
+n = 4
+marked = 5
+ket = "|0101>"
+iterations = 3
+success_probability = 0.9613189697265625
+path = "circuits/grover_n4_marked5.qasm"
+ancilla = 1
+
+[[grover.instances]]
+n = 4
+marked = 6
+ket = "|0110>"
+iterations = 3
+success_probability = 0.9613189697265625
+path = "circuits/grover_n4_marked6.qasm"
+ancilla = 1
+
+[[grover.instances]]
+n = 4
+marked = 7
+ket = "|0111>"
+iterations = 3
+success_probability = 0.9613189697265625
+path = "circuits/grover_n4_marked7.qasm"
+ancilla = 1
+
+[[grover.instances]]
+n = 4
+marked = 8
+ket = "|1000>"
+iterations = 3
+success_probability = 0.9613189697265625
+path = "circuits/grover_n4_marked8.qasm"
+ancilla = 1
+
+[[grover.instances]]
+n = 4
+marked = 9
+ket = "|1001>"
+iterations = 3
+success_probability = 0.9613189697265625
+path = "circuits/grover_n4_marked9.qasm"
+ancilla = 1
+
+[[grover.instances]]
+n = 4
+marked = 10
+ket = "|1010>"
+iterations = 3
+success_probability = 0.9613189697265625
+path = "circuits/grover_n4_marked10.qasm"
+ancilla = 1
+
+[[grover.instances]]
+n = 4
+marked = 11
+ket = "|1011>"
+iterations = 3
+success_probability = 0.9613189697265625
+path = "circuits/grover_n4_marked11.qasm"
+ancilla = 1
+
+[[grover.instances]]
+n = 4
+marked = 12
+ket = "|1100>"
+iterations = 3
+success_probability = 0.9613189697265625
+path = "circuits/grover_n4_marked12.qasm"
+ancilla = 1
+
+[[grover.instances]]
+n = 4
+marked = 13
+ket = "|1101>"
+iterations = 3
+success_probability = 0.9613189697265625
+path = "circuits/grover_n4_marked13.qasm"
+ancilla = 1
+
+[[grover.instances]]
+n = 4
+marked = 14
+ket = "|1110>"
+iterations = 3
+success_probability = 0.9613189697265625
+path = "circuits/grover_n4_marked14.qasm"
+ancilla = 1
+
+[[grover.instances]]
+n = 4
+marked = 15
+ket = "|1111>"
+iterations = 3
+success_probability = 0.9613189697265625
+path = "circuits/grover_n4_marked15.qasm"
+ancilla = 1
+
+[fibonacci]
+source = "topological/fibonacci.toml"
+note = "Braid unitaries use the supplied F and R. Claimed X/H labels are checked, not assumed."
+
+[[fibonacci.circuits]]
+path = "circuits/topological/sigma1.qasm"
+process_fidelity_X = 0
+process_fidelity_H = 0.3272542485937368
+process_fidelity_Z = 0.6545084971874739
+operator_error_X = 1.975376681190275
+operator_error_H = 0.925136311234529
+p_one_from_zero = 0
+
+[[fibonacci.circuits]]
+path = "circuits/topological/sigma2.qasm"
+process_fidelity_X = 0.618033988749895
+process_fidelity_H = 0.177112695593348
+process_fidelity_Z = 0.03647450843757889
+operator_error_X = 0.653985660764174
+operator_error_H = 1.076245704397878
+p_one_from_zero = 0.618033988749895
+
+[[fibonacci.circuits]]
+path = "circuits/topological/f_matrix_tau.qasm"
+process_fidelity_X = 0.6180339887498948
+process_fidelity_H = 0.9858682717566454
+process_fidelity_Z = 0.3819660112501051
+operator_error_X = 0.6539856607641741
+operator_error_H = 0.1190882471090893
+p_one_from_zero = 0.6180339887498948
+
+[[fibonacci.circuits]]
+path = "circuits/topological/r_matrix_tau.qasm"
+process_fidelity_X = 0
+process_fidelity_H = 0.3272542485937368
+process_fidelity_Z = 0.6545084971874739
+operator_error_X = 1.975376681190275
+operator_error_H = 0.925136311234529
+p_one_from_zero = 0
+
+[[fibonacci.circuits]]
+path = "circuits/topological/logical_x_braid_010.qasm"
+process_fidelity_X = 0.618033988749895
+process_fidelity_H = 0.9858682717566454
+process_fidelity_Z = 0.3819660112501051
+operator_error_X = 0.653985660764174
+operator_error_H = 0.1190882471090895
+p_one_from_zero = 0.618033988749895
+
+[[fibonacci.circuits]]
+path = "circuits/topological/logical_h_braid_0101.qasm"
+process_fidelity_X = 0.213525491562421
+process_fidelity_H = 0.3406091107843914
+process_fidelity_Z = 0.131966011250105
+operator_error_X = 1.037219180390314
+operator_error_H = 0.9125598457598849
+p_one_from_zero = 0.6180339887498948
+
+[fidelity_definition]
+process = "|Tr(T^dag U)|^2 / 4"
+average_gate = "(2 * process + 1) / 3"
+operator_error = "spectral norm after best global phase"

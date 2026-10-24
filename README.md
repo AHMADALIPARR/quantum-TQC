@@ -130,7 +130,29 @@ measure q[0] -> c[0];
 measure q[1] -> c[1];
 ```
 
-### 5. Null-collapse (local, m=3) — [`null-collapse-tqc/circuits/null_collapse_local_m3.qasm`](null-collapse-tqc/circuits/null_collapse_local_m3.qasm)
+### 5. Full Grover catalog, n ≤ 4
+
+One marked item, `k = floor(π/4 √(2^n))` iterates, q[0] = leftmost ket bit.
+Files: `quantum-agent/circuits/grover_n{n}_marked{m}.qasm` (30 circuits).
+n=4 uses one clean ancilla `q[4]`.
+
+| n | k | Success probability |
+|---|---|---------------------|
+| 1 | 1 | 1/2 |
+| 2 | 1 | 1 |
+| 3 | 2 | 121/128 |
+| 4 | 3 | ≈ 0.9613 |
+
+Record: [`quantum-agent/verification/circuit_checks.toml`](quantum-agent/verification/circuit_checks.toml).
+
+### 6. Fibonacci braids — [`quantum-agent/circuits/topological/`](quantum-agent/circuits/topological/)
+
+`u3` circuits of the F and R matrices in `fibonacci.toml`, plus braid words
+`[0,1,0]` and `[0,1,0,1]`. The word the skeleton labeled exact logical X
+is not Pauli X under those matrices (average gate fidelity 0.745 to X,
+0.991 to H). The circuit is the braid, and the error is in the file header.
+
+### 7. Null-collapse (local, m=3) — [`null-collapse-tqc/circuits/null_collapse_local_m3.qasm`](null-collapse-tqc/circuits/null_collapse_local_m3.qasm)
 
 From `spec/algorithm.txt`: θ = 2 arcsin(w), Ry, Z braid, measure; collapsed = (c == 0).
 
@@ -148,7 +170,7 @@ measure q[1] -> c[1];
 measure q[2] -> c[2];
 ```
 
-### 6. Null-collapse (pairwise braid) — [`null-collapse-tqc/circuits/null_collapse_pair_m3.qasm`](null-collapse-tqc/circuits/null_collapse_pair_m3.qasm)
+### 8. Null-collapse (pairwise braid) — [`null-collapse-tqc/circuits/null_collapse_pair_m3.qasm`](null-collapse-tqc/circuits/null_collapse_pair_m3.qasm)
 
 ```qasm
 OPENQASM 2.0;
@@ -166,7 +188,7 @@ measure q[1] -> c[1];
 measure q[2] -> c[2];
 ```
 
-### 7. φ⁴ Trotter (CPSC/QFT) — [`cpsc-qft/qasm/phi4_trotter.qasm`](cpsc-qft/qasm/phi4_trotter.qasm)
+### 9. φ⁴ Trotter (CPSC/QFT) — [`cpsc-qft/qasm/phi4_trotter.qasm`](cpsc-qft/qasm/phi4_trotter.qasm)
 
 OpenQASM 3.0 φ⁴ interaction step (Λ=8 → 3 qubits). See source for Trotter structure.
 
